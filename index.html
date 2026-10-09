@@ -1,1 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aniversário da Rebeca 🌊</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap');
+:root{--od:#0a3d6b;--om:#1a6fa8;--ol:#5bc8f5;--of:#b8e8f8;--co:#ff7f7f;--cl:#ffb3b3;--go:#ffd700;--te:#00c9b1;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--od);min-height:100vh;overflow-x:hidden;}
 
+/* SPLASH */
+#splash{position:fixed;inset:0;z-index:9999;background:linear-gradient(160deg,#051e3e 0%,#0a3d6b 40%,#1a6fa8 80%,#5bc8f5 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:opacity 0.8s ease;}
+#splash.hide{opacity:0;pointer-events:none;}
+.sbubbles{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+.sb{position:absolute;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);animation:floatUp linear infinite;}
+.sphoto{width:200px;height:200px;border-radius:50%;border:5px solid rgba(255,255,255,0.5);box-shadow:0 0 40px rgba(91,200,245,0.5);overflow:hidden;margin-bottom:28px;animation:pulse 2s ease-in-out infinite;background:#fff;}
+.sphoto img{width:100%;height:100%;object-fit:cover;object-position:top;}
+@keyframes pulse{0%,100%{box-shadow:0 0 30px rgba(91,200,245,0.5);}50%{box-shadow:0 0 60px rgba(91,200,245,0.9);}}
+.stitle{font-family:'Pacifico',cursive;font-size:2.2rem;color:#fff;text-shadow:0 2px 20px rgba(91,200,245,0.8);text-align:center;margin-bottom:8px;}
+.ssub{color:var(--of);font-size:1rem;margin-bottom:36px;text-align:center;}
+.btn-open{background:linear-gradient(135deg,#ff7f7f,#ff5252);color:#fff;border:none;padding:16px 40px;border-radius:50px;font-family:'Nunito',sans-serif;font-size:1.1rem;font-weight:800;cursor:pointer;box-shadow:0 8px 30px rgba(255,82,82,0.4);animation:pop 1.5s ease-in-out infinite;}
+@keyframes pop{0%,100%{transform:scale(1);}50%{transform:scale(1.05);}}
+
+/* MAIN */
+#main{display:none;min-height:100vh;background:linear-gradient(180deg,#051e3e 0%,#0a3d6b 20%,#1565a0 50%,#1a8ab8 80%,#5bc8f5 100%);position:relative;overflow:hidden;}
+.ocean-bg{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.bub{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,0.3),rgba(255,255,255,0.05));border:1px solid rgba(255,255,255,0.2);animation:floatUp linear infinite;}
+@keyframes floatUp{0%{transform:translateY(0);opacity:0;}10%{opacity:1;}90%{opacity:0.7;}100%{transform:translateY(-110vh) translateX(20px);opacity:0;}}
+.fish{position:fixed;pointer-events:none;z-index:1;animation:swim linear infinite;}
+@keyframes swim{0%{transform:translateX(-120px);}100%{transform:translateX(110vw);}}
+
+.content{position:relative;z-index:2;}
+.wrap{max-width:500px;margin:0 auto;}
+.hero{text-align:center;padding:60px 20px 30px;position:relative;}
+.seaweed-top{position:absolute;top:0;left:0;right:0;font-size:3rem;opacity:0.3;display:flex;justify-content:space-around;pointer-events:none;}
+.main-title{font-family:'Pacifico',cursive;font-size:clamp(2rem,7vw,3.8rem);color:#fff;text-shadow:0 3px 20px rgba(91,200,245,0.8);line-height:1.2;margin-bottom:8px;animation:float 3s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+.subtitle{font-size:1rem;color:var(--of);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:30px;}
+
+.photos-row{display:flex;justify-content:center;align-items:flex-end;gap:20px;padding:0 20px 20px;flex-wrap:wrap;}
+.pbub{border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,0.5);box-shadow:0 8px 40px rgba(0,0,0,0.3),0 0 30px rgba(91,200,245,0.3);animation:bob ease-in-out infinite;flex-shrink:0;background:#fff;}
+.pbub img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+.pbub.big{width:200px;height:200px;animation-duration:3s;}
+.pbub.sm{width:150px;height:150px;animation-duration:4s;animation-delay:0.5s;}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg);}50%{transform:translateY(-12px) rotate(1deg);}}
+
+.theme-wrap{display:flex;justify-content:center;padding:20px 16px 30px;}
+.theme-wrap img{width:min(380px,86vw);height:min(380px,86vw);border-radius:50%;border:5px solid rgba(255,255,255,0.5);box-shadow:0 0 80px rgba(91,200,245,0.6);animation:bob 4s ease-in-out infinite;object-fit:cover;object-position:top center;display:block;background:#fff;}
+
+.card{background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.2);border-radius:24px;padding:28px;margin:0 20px 24px;box-shadow:0 8px 40px rgba(0,0,0,0.2);text-align:center;}
+.c-icon{font-size:2.5rem;margin-bottom:12px;}
+.c-title{font-family:'Pacifico',cursive;font-size:1.4rem;color:var(--ol);margin-bottom:16px;}
+.info-row{display:flex;align-items:center;justify-content:center;gap:10px;color:#fff;font-size:1rem;font-weight:600;margin-bottom:10px;}
+
+.btn-red{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ff7f7f,#ff5252);color:#fff;border:none;padding:14px 32px;border-radius:50px;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;text-decoration:none;box-shadow:0 6px 25px rgba(255,82,82,0.4);transition:all 0.3s;margin:6px;}
+.btn-red:hover{transform:translateY(-3px) scale(1.03);}
+.btn-teal{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#00c9b1,#0095a8);color:#fff;border:none;padding:14px 32px;border-radius:50px;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;text-decoration:none;box-shadow:0 6px 25px rgba(0,201,177,0.4);transition:all 0.3s;margin:6px;}
+.btn-teal:hover{transform:translateY(-3px) scale(1.03);}
+
+.gift-list{list-style:none;text-align:left;margin-top:12px;}
+.gift-list li{color:#fff;font-size:0.95rem;font-weight:600;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:10px;}
+.gift-list li:last-child{border-bottom:none;}
+
+.modal-ov{display:none;position:fixed;inset:0;z-index:999;background:rgba(5,30,62,0.85);backdrop-filter:blur(8px);align-items:center;justify-content:center;}
+.modal-ov.show{display:flex;}
+.modal-box{background:linear-gradient(135deg,#0a3d6b,#1a6fa8);border:2px solid rgba(91,200,245,0.4);border-radius:28px;padding:36px 28px;max-width:380px;width:90%;text-align:center;box-shadow:0 20px 80px rgba(0,0,0,0.5);animation:mpop 0.4s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes mpop{0%{transform:scale(0.5);opacity:0;}100%{transform:scale(1);opacity:1;}}
+.m-icon{font-size:3rem;margin-bottom:12px;}
+.m-title{font-family:'Pacifico',cursive;color:#fff;font-size:1.4rem;margin-bottom:12px;}
+.m-text{color:var(--of);font-size:0.95rem;line-height:1.6;margin-bottom:20px;}
+.btn-close{background:rgba(255,255,255,0.15);color:#fff;border:1px solid rgba(255,255,255,0.3);padding:10px 28px;border-radius:50px;font-family:'Nunito',sans-serif;font-weight:700;cursor:pointer;font-size:0.95rem;transition:all 0.2s;}
+.btn-close:hover{background:rgba(255,255,255,0.25);}
+
+.confetti-p{position:fixed;pointer-events:none;z-index:9998;animation:cffall linear forwards;}
+@keyframes cffall{0%{transform:translateY(-20px) rotate(0deg);opacity:1;}100%{transform:translateY(110vh) rotate(720deg);opacity:0;}}
+
+.seabed{text-align:center;font-size:2.5rem;padding:10px;opacity:0.6;animation:sway 3s ease-in-out infinite;}
+@keyframes sway{0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}
+
+.music-btn{position:fixed;top:16px;right:16px;z-index:100;background:rgba(255,255,255,0.15);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.3);border-radius:50px;padding:8px 14px;color:#fff;font-size:0.85rem;font-weight:700;cursor:pointer;transition:all 0.3s;user-select:none;}
+.music-btn:hover{background:rgba(255,255,255,0.25);}
+.music-btn.playing .ni{display:inline-block;animation:nw 1s linear infinite;}
+@keyframes nw{0%,100%{transform:rotate(-15deg);}50%{transform:rotate(15deg);}}
+</style>
+</head>
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+  <div class="sbubbles" id="sbubbles"></div>
+  <div class="sphoto">
+    <img src="rebeca.png" alt="Rebeca">
+  </div>
+  <div class="stitle">Rebeca</div>
+  <div class="ssub">2 Aninhos 🌊</div>
+  <button class="btn-open">Abrir Convite 💙</button>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+  <div class="ocean-bg" id="oceanBg"></div>
+
+  <div class="music-btn" id="musicBtn">
+    <span class="ni">🎵</span> Música
+  </div>
+
+  <div class="content">
+    <div class="wrap">
+
+      <div class="hero">
+        <div class="seaweed-top">🌿🐚🌿🐚🌿</div>
+        <h1 class="main-title">Rebeca</h1>
+        <div class="subtitle">2 Aninhos</div>
+      </div>
+
+      <div class="theme-wrap">
+        <img src="rebeca.png" alt="Rebeca">
+      </div>
+
+      <div class="card">
+        <div class="c-icon">🎉</div>
+        <div class="c-title">Festa de Aniversário</div>
+        <div class="info-row">📅 06 de Janeiro de 2027</div>
+        <div class="info-row">⏰ Às 16h</div>
+      </div>
+
+      <div class="card">
+        <div class="c-icon">📍</div>
+        <div class="c-title">Local</div>
+        <div class="info-row">R. Henrique Beletable, 46</div>
+        <div class="info-row">Santo Antônio</div>
+        <div class="info-row">Colatina - ES, 29704-065</div>
+        <a class="btn-teal" target="_blank" href="https://www.google.com/maps/search/?api=1&query=R.+Henrique+Beletable,+46+-+Santo+Ant%C3%B4nio,+Colatina+-+ES,+29704-065">Ver no Mapa 🗺️</a>
+      </div>
+
+      <div class="card">
+        <div class="c-icon">💌</div>
+        <div class="c-title">Confirme sua Presença</div>
+        <div class="info-row">Sua presença é muito importante!</div>
+        <a class="btn-red" target="_blank" href="https://wa.me/5527998107319?text=Ol%C3%A1!%20Confirmo%20presen%C3%A7a%20no%20anivers%C3%A1rio%20de%202%20aninhos%20da%20Rebeca%20%F0%9F%8C%8A">Confirmar no WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <div class="c-icon">🎁</div>
+        <div class="c-title">Sugestões de Presente</div>
+        <ul class="gift-list">
+          <li>🧸 Brinquedos educativos</li>
+          <li>👗 Roupas (tamanho 2-3 anos)</li>
+          <li>📚 Livros infantis</li>
+          <li>💝 Ou o que seu coração mandar!</li>
+        </ul>
+      </div>
+
+      <div class="seabed">🐠🐟🐠🐟🐠</div>
+
+    </div>
+  </div>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// Splash
+const splash = document.getElementById('splash');
+const main = document.getElementById('main');
+splash.addEventListener('click', () => {
+  splash.classList.add('hide');
+  main.style.display = 'block';
+  setTimeout(() => { splash.style.display = 'none'; startConfetti(); }, 800);
+});
+
+// Bolhas splash
+const sb = document.getElementById('sbubbles');
+for (let i = 0; i < 20; i++) {
+  const b = document.createElement('div');
+  b.className = 'sb';
+  const size = Math.random() * 40 + 10;
+  b.style.width = b.style.height = size + 'px';
+  b.style.left = Math.random() * 100 + '%';
+  b.style.bottom = '-60px';
+  b.style.animationDuration = (Math.random() * 8 + 6) + 's';
+  b.style.animationDelay = (Math.random() * 5) + 's';
+  sb.appendChild(b);
+}
+
+// Bolhas principal
+const oceanBg = document.getElementById('oceanBg');
+for (let i = 0; i < 30; i++) {
+  const b = document.createElement('div');
+  b.className = 'bub';
+  const size = Math.random() * 30 + 8;
+  b.style.width = b.style.height = size + 'px';
+  b.style.left = Math.random() * 100 + '%';
+  b.style.bottom = '-60px';
+  b.style.animationDuration = (Math.random() * 10 + 8) + 's';
+  b.style.animationDelay = (Math.random() * 8) + 's';
+  oceanBg.appendChild(b);
+}
+
+// Peixinhos
+const fishes = ['🐠','🐟','🐡','🦈'];
+for (let i = 0; i < 4; i++) {
+  const f = document.createElement('div');
+  f.className = 'fish';
+  f.textContent = fishes[i];
+  f.style.fontSize = (Math.random() * 20 + 20) + 'px';
+  f.style.top = (Math.random() * 60 + 20) + '%';
+  f.style.animationDuration = (Math.random() * 20 + 20) + 's';
+  f.style.animationDelay = (Math.random() * 15) + 's';
+  document.body.appendChild(f);
+}
+
+// Confetti
+function startConfetti() {
+  const colors = ['#ff7f7f','#5bc8f5','#ffd700','#00c9b1','#ffb3b3'];
+  for (let i = 0; i < 60; i++) {
+    setTimeout(() => {
+      const c = document.createElement('div');
+      c.className = 'confetti-p';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.top = '-20px';
+      c.style.width = '8px';
+      c.style.height = '12px';
+      c.style.background = colors[Math.floor(Math.random() * colors.length)];
+      c.style.animationDuration = (Math.random() * 2 + 2) + 's';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 5000);
+    }, i * 50);
+  }
+}
+
+// Música
+const musicBtn = document.getElementById('musicBtn');
+const bgMusic = document.getElementById('bgMusic');
+let playing = false;
+musicBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  if (playing) { bgMusic.pause(); musicBtn.classList.remove('playing'); }
+  else { bgMusic.play(); musicBtn.classList.add('playing'); }
+  playing = !playing;
+});
+</script>
+</body>
+</html>
