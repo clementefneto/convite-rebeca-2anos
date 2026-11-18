@@ -15,7 +15,7 @@ body{font-family:'Nunito',sans-serif;background:var(--od);min-height:100vh;overf
 #splash.hide{opacity:0;pointer-events:none;}
 .sbubbles{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
 .sb{position:absolute;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);animation:floatUp linear infinite;}
-.sphoto{width:200px;height:200px;border-radius:50%;border:5px solid rgba(255,255,255,0.5);box-shadow:0 0 40px rgba(91,200,245,0.5);overflow:hidden;margin-bottom:28px;animation:pulse 2s ease-in-out infinite;background:#fff;}
+.sphoto{width:200px;height:200px;border-radius:50%;border:5px solid rgba(255,255,255,0.5);box-shadow:0 0 40px rgba(91,200,245,0.5);overflow:hidden;margin-bottom:28px;animation:pulse 2s ease-in-out infinite;}
 .sphoto img{width:100%;height:100%;object-fit:cover;object-position:top;}
 @keyframes pulse{0%,100%{box-shadow:0 0 30px rgba(91,200,245,0.5);}50%{box-shadow:0 0 60px rgba(91,200,245,0.9);}}
 .stitle{font-family:'Pacifico',cursive;font-size:2.2rem;color:#fff;text-shadow:0 2px 20px rgba(91,200,245,0.8);text-align:center;margin-bottom:8px;}
@@ -40,14 +40,14 @@ body{font-family:'Nunito',sans-serif;background:var(--od);min-height:100vh;overf
 .subtitle{font-size:1rem;color:var(--of);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:30px;}
 
 .photos-row{display:flex;justify-content:center;align-items:flex-end;gap:20px;padding:0 20px 20px;flex-wrap:wrap;}
-.pbub{border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,0.5);box-shadow:0 8px 40px rgba(0,0,0,0.3),0 0 30px rgba(91,200,245,0.3);animation:bob ease-in-out infinite;flex-shrink:0;background:#fff;}
+.pbub{border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,0.5);box-shadow:0 8px 40px rgba(0,0,0,0.3),0 0 30px rgba(91,200,245,0.3);animation:bob ease-in-out infinite;flex-shrink:0;}
 .pbub img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
 .pbub.big{width:200px;height:200px;animation-duration:3s;}
 .pbub.sm{width:150px;height:150px;animation-duration:4s;animation-delay:0.5s;}
 @keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg);}50%{transform:translateY(-12px) rotate(1deg);}}
 
 .theme-wrap{display:flex;justify-content:center;padding:20px 16px 30px;}
-.theme-wrap img{width:min(380px,86vw);height:min(380px,86vw);border-radius:50%;border:5px solid rgba(255,255,255,0.5);box-shadow:0 0 80px rgba(91,200,245,0.6);animation:bob 4s ease-in-out infinite;object-fit:cover;object-position:top center;display:block;background:#fff;}
+.theme-wrap img{width:min(380px,86vw);height:min(380px,86vw);border-radius:50%;border:5px solid rgba(255,255,255,0.5);box-shadow:0 0 80px rgba(91,200,245,0.6);animation:bob 4s ease-in-out infinite;object-fit:cover;object-position:top center;display:block;}
 
 .card{background:rgba(255,255,255,0.1);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.2);border-radius:24px;padding:28px;margin:0 20px 24px;box-shadow:0 8px 40px rgba(0,0,0,0.2);text-align:center;}
 .c-icon{font-size:2.5rem;margin-bottom:12px;}
@@ -91,157 +91,232 @@ body{font-family:'Nunito',sans-serif;background:var(--od);min-height:100vh;overf
 <div id="splash">
   <div class="sbubbles" id="sbubbles"></div>
   <div class="sphoto">
-    <img src="rebeca.png" alt="Rebeca">
+    <img src="foto1.jpg" alt="Rebeca">
   </div>
-  <div class="stitle">Rebeca</div>
-  <div class="ssub">2 Aninhos 🌊</div>
-  <button class="btn-open">Abrir Convite 💙</button>
+  <div class="stitle">🌊 Rebeca faz<br><span style="color:#ffd700">2 Aninhos!</span> 🎉</div>
+  <div class="ssub">✨ Toque para abrir o convite ✨</div>
+  <button class="btn-open" id="btnOpen">🐠 Abrir Convite 🐠</button>
 </div>
 
 <!-- MAIN -->
 <div id="main">
   <div class="ocean-bg" id="oceanBg"></div>
-
-  <div class="music-btn" id="musicBtn">
-    <span class="ni">🎵</span> Música
-  </div>
+  <div class="music-btn" id="musicBtn"><span class="ni">🎵</span> Música</div>
 
   <div class="content">
     <div class="wrap">
 
       <div class="hero">
-        <div class="seaweed-top">🌿🐚🌿🐚🌿</div>
-        <h1 class="main-title">Rebeca</h1>
-        <div class="subtitle">2 Aninhos</div>
-      </div>
-
+        <div class="seaweed-top"><span>🌿</span><span>🪸</span><span>🌿</span><span>🪸</span><span>🌿</span></div>
+        <div class="main-title">Você está<br>convidado! 🎉</div>
+        <div class="subtitle">🐚 Uma festa no fundo do mar 🐚</div>
       <div class="theme-wrap">
-        <img src="rebeca.png" alt="Rebeca">
+        <img src="foto2.jpg" alt="Tema fundo do mar">
       </div>
 
       <div class="card">
-        <div class="c-icon">🎉</div>
-        <div class="c-title">Festa de Aniversário</div>
-        <div class="info-row">📅 06 de Janeiro de 2027</div>
-        <div class="info-row">⏰ Às 19h</div>
+        <div class="c-icon">🎂</div>
+        <div class="c-title">Rebeca</div>
+        <p style="color:#ffd700;font-size:1.1rem;font-weight:800;">🎈 2 Aninhos! 🎈</p>
+        <p style="color:var(--of);font-size:0.9rem;margin-top:8px;">Venha celebrar com a gente esse momento tão especial! 🌊💕</p>
+      </div>
+
+      <div class="card">
+        <div class="c-icon">🗓️</div>
+        <div class="c-title">Quando?</div>
+        <div class="info-row"><span style="font-size:1.4rem"></span><span>06 de Janeiro de 2027</span></div>
+        <div class="info-row"><span style="font-size:1.4rem">⏰</span><span>19h00</span></div>
       </div>
 
       <div class="card">
         <div class="c-icon">📍</div>
-        <div class="c-title">Local</div>
-        <div class="info-row">R. Henrique Beletable, 46</div>
-        <div class="info-row">Santo Antônio</div>
-        <div class="info-row">Colatina - ES, 29704-065</div>
-        <a class="btn-teal" target="_blank" href="https://www.google.com/maps/search/?api=1&query=R.+Henrique+Beletable,+46+-+Santo+Ant%C3%B4nio,+Colatina+-+ES,+29704-065">Ver no Mapa 🗺️</a>
-      </div>
-
-      <div class="card">
-        <div class="c-icon">💌</div>
-        <div class="c-title">Confirme sua Presença</div>
-        <div class="info-row">Sua presença é muito importante!</div>
-        <a class="btn-red" target="_blank" href="https://wa.me/5527998107319?text=Ol%C3%A1!%20Confirmo%20presen%C3%A7a%20no%20anivers%C3%A1rio%20de%202%20aninhos%20da%20Rebeca%20%F0%9F%8C%8A">Confirmar no WhatsApp</a>
+        <div class="c-title">Onde?</div>
+        <p style="color:var(--of);margin-bottom:16px;font-size:0.95rem;">Cerimonial Fest Palace</p>
+        <a href="https://www.google.com/maps/place/Patroa+(+casa+de+festas+)/@-19.5174566,-40.6524766,70m" target="_blank" class="btn-red">🗺️ Ver no Google Maps</a>
       </div>
 
       <div class="card">
         <div class="c-icon">🎁</div>
-        <div class="c-title">Sugestões de Presente</div>
-        <ul class="gift-list">
-          <li>👗 Roupa — Tamanho 3 ou 4</li>
-          <li>👟 Calçado — Número 23 </li>
-          <li>🧸 Brinquedos</li>
-        </ul>
+        <div class="c-title">Sugestão de Presente</div>
+        <p style="color:var(--of);margin-bottom:16px;font-size:0.9rem;">Se quiser presentear a Rebeca, aqui vão algumas ideias:</p>
+        <button class="btn-teal" id="btnGifts">🎀 Ver Sugestões</button>
       </div>
 
-      <div class="seabed">🐠🐟🐠🐟🐠</div>
+      <div class="card">
+        <div class="c-icon">✅</div>
+        <div class="c-title">Confirme sua Presença</div>
+        <p style="color:var(--of);margin-bottom:4px;font-size:0.9rem;">Até o dia <strong style="color:#ffd700">01/07/2026</strong></p>
+        <p style="color:var(--of);margin-bottom:16px;font-size:0.85rem;">Sua presença é muito importante para nós! 💙</p>
+        <button class="btn-red" id="btnConfirm">🐬 Confirmar Presença</button>
+      </div>
 
+      <div class="seabed">🪸 🐚 ⭐ 🐚 🪸</div>
+      <div style="padding:30px 20px 50px;"></div>
     </div>
   </div>
 </div>
 
-<audio id="bgMusic" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
+<!-- GIFTS MODAL -->
+<div class="modal-ov" id="giftsModal">
+  <div class="modal-box">
+    <div class="m-icon">🎁</div>
+    <div class="m-title">Sugestões de Presente</div>
+    <ul class="gift-list">
+      <li>👗 Roupa — Tamanho 3 ou 4</li>
+      <li>🩱 Roupa de Banho — Tamanho 3</li>
+      <li>👟 Calçado — Número 23</li>
+      <li>🧸 Brinquedos</li>
+    </ul>
+    <br>
+    <button class="btn-close" id="closeGifts">Fechar 💙</button>
+  </div>
+</div>
+
+<!-- CONFIRM MODAL -->
+<div class="modal-ov" id="confirmModal">
+  <div class="modal-box">
+    <div class="m-icon">🎉</div>
+    <div class="m-title">Confirmar Presença</div>
+    <p class="m-text">Clique abaixo e mande a mensagem para confirmar sua presença!</p>
+    <a id="btnWA" href="https://wa.me/5527998107319?text=Oi%21%20Eu%20confirmo%20minha%20presen%C3%A7a%20no%20anivers%C3%A1rio%20de%202%20anos%20da%20Rebeca%2C%20Mal%20posso%20esperar%21" target="_blank" class="btn-red" style="display:block;text-align:center;margin-bottom:12px;">📱 Confirmar no WhatsApp</a>
+    <button class="btn-close" id="closeConfirm">Cancelar</button>
+  </div>
+</div>
+
+<audio id="bgAudio" loop preload="auto"><source src="musica.mp3" type="audio/mpeg"></audio>
 
 <script>
-// Splash
-const splash = document.getElementById('splash');
-const main = document.getElementById('main');
-splash.addEventListener('click', () => {
-  splash.classList.add('hide');
-  main.style.display = 'block';
-  setTimeout(() => { splash.style.display = 'none'; startConfetti(); }, 800);
-});
+(function() {
+  var musicPlaying = false;
 
-// Bolhas splash
-const sb = document.getElementById('sbubbles');
-for (let i = 0; i < 20; i++) {
-  const b = document.createElement('div');
-  b.className = 'sb';
-  const size = Math.random() * 40 + 10;
-  b.style.width = b.style.height = size + 'px';
-  b.style.left = Math.random() * 100 + '%';
-  b.style.bottom = '-60px';
-  b.style.animationDuration = (Math.random() * 8 + 6) + 's';
-  b.style.animationDelay = (Math.random() * 5) + 's';
-  sb.appendChild(b);
-}
-
-// Bolhas principal
-const oceanBg = document.getElementById('oceanBg');
-for (let i = 0; i < 30; i++) {
-  const b = document.createElement('div');
-  b.className = 'bub';
-  const size = Math.random() * 30 + 8;
-  b.style.width = b.style.height = size + 'px';
-  b.style.left = Math.random() * 100 + '%';
-  b.style.bottom = '-60px';
-  b.style.animationDuration = (Math.random() * 10 + 8) + 's';
-  b.style.animationDelay = (Math.random() * 8) + 's';
-  oceanBg.appendChild(b);
-}
-
-// Peixinhos
-const fishes = ['🐠','🐟','🐡','🦈'];
-for (let i = 0; i < 4; i++) {
-  const f = document.createElement('div');
-  f.className = 'fish';
-  f.textContent = fishes[i];
-  f.style.fontSize = (Math.random() * 20 + 20) + 'px';
-  f.style.top = (Math.random() * 60 + 20) + '%';
-  f.style.animationDuration = (Math.random() * 20 + 20) + 's';
-  f.style.animationDelay = (Math.random() * 15) + 's';
-  document.body.appendChild(f);
-}
-
-// Confetti
-function startConfetti() {
-  const colors = ['#ff7f7f','#5bc8f5','#ffd700','#00c9b1','#ffb3b3'];
-  for (let i = 0; i < 60; i++) {
-    setTimeout(() => {
-      const c = document.createElement('div');
-      c.className = 'confetti-p';
-      c.style.left = Math.random() * 100 + 'vw';
-      c.style.top = '-20px';
-      c.style.width = '8px';
-      c.style.height = '12px';
-      c.style.background = colors[Math.floor(Math.random() * colors.length)];
-      c.style.animationDuration = (Math.random() * 2 + 2) + 's';
-      document.body.appendChild(c);
-      setTimeout(() => c.remove(), 5000);
-    }, i * 50);
+  function openInvite() {
+    var splash = document.getElementById('splash');
+    splash.classList.add('hide');
+    setTimeout(function() {
+      splash.style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+      startMusic();
+      startBubbles();
+      startFish();
+      launchConfetti();
+    }, 800);
   }
-}
 
-// Música
-const musicBtn = document.getElementById('musicBtn');
-const bgMusic = document.getElementById('bgMusic');
-let playing = false;
-musicBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  if (playing) { bgMusic.pause(); musicBtn.classList.remove('playing'); }
-  else { bgMusic.play(); musicBtn.classList.add('playing'); }
-  playing = !playing;
-});
+  function startMusic() {
+    var audio = document.getElementById('bgAudio');
+    audio.play().catch(function(){});
+    musicPlaying = true;
+    var btn = document.getElementById('musicBtn');
+    btn.classList.add('playing');
+    btn.innerHTML = '<span class="ni">🎵</span> Música';
+  }
+
+  function toggleMusic() {
+    var audio = document.getElementById('bgAudio');
+    var btn = document.getElementById('musicBtn');
+    if (musicPlaying) {
+      audio.pause();
+      musicPlaying = false;
+      btn.classList.remove('playing');
+      btn.innerHTML = '<span class="ni">🔇</span> Música';
+    } else {
+      startMusic();
+    }
+  }
+
+  function addBubble() {
+    var bg = document.getElementById('oceanBg');
+    var b = document.createElement('div');
+    b.className = 'bub';
+    var size = Math.random() * 25 + 6;
+    b.style.width = size + 'px';
+    b.style.height = size + 'px';
+    b.style.left = (Math.random() * 100) + '%';
+    b.style.bottom = '-' + size + 'px';
+    b.style.animationDuration = (Math.random() * 10 + 8) + 's';
+    bg.appendChild(b);
+    setTimeout(function() { if(b.parentNode) b.parentNode.removeChild(b); }, 20000);
+  }
+
+  function startBubbles() {
+    for (var i = 0; i < 10; i++) setTimeout(addBubble, i * 400);
+    setInterval(addBubble, 900);
+  }
+
+  function startFish() {
+    var arr = ['🐠','🐡','🐟','🐙','🦀','🐢','🦑'];
+    setInterval(function() {
+      var f = document.createElement('div');
+      f.className = 'fish';
+      f.textContent = arr[Math.floor(Math.random() * arr.length)];
+      f.style.top = (Math.random() * 80) + '%';
+      f.style.animationDuration = (Math.random() * 10 + 8) + 's';
+      f.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+      document.body.appendChild(f);
+      setTimeout(function() { if(f.parentNode) f.parentNode.removeChild(f); }, 25000);
+    }, 3000);
+  }
+
+  function launchConfetti() {
+    var colors = ['#ff7f7f','#ffd700','#5bc8f5','#00c9b1','#ffb3b3','#fff'];
+    var shapes = ['■','●','▲','★','♦'];
+    for (var i = 0; i < 80; i++) {
+      (function(idx) {
+        setTimeout(function() {
+          var c = document.createElement('div');
+          c.className = 'confetti-p';
+          c.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+          c.style.left = (Math.random() * 100) + 'vw';
+          c.style.top = '-20px';
+          c.style.color = colors[Math.floor(Math.random() * colors.length)];
+          c.style.fontSize = (Math.random() * 16 + 8) + 'px';
+          c.style.animationDuration = (Math.random() * 3 + 2) + 's';
+          c.style.animationDelay = (Math.random() * 1.5) + 's';
+          document.body.appendChild(c);
+          setTimeout(function() { if(c.parentNode) c.parentNode.removeChild(c); }, 6000);
+        }, idx * 40);
+      })(i);
+    }
+  }
+
+  function showModal(id) {
+    document.getElementById(id).classList.add('show');
+    launchConfetti();
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('show');
+  }
+
+  // Splash bubbles
+  (function() {
+    var cont = document.getElementById('sbubbles');
+    for (var i = 0; i < 15; i++) {
+      var b = document.createElement('div');
+      b.className = 'sb';
+      var s = Math.random() * 50 + 10;
+      b.style.width = s + 'px'; b.style.height = s + 'px';
+      b.style.left = (Math.random() * 100) + '%';
+      b.style.bottom = '-' + s + 'px';
+      b.style.animationDuration = (Math.random() * 8 + 6) + 's';
+      b.style.animationDelay = (Math.random() * 4) + 's';
+      cont.appendChild(b);
+    }
+  })();
+
+  // Events
+  document.getElementById('btnOpen').addEventListener('click', function(e) {
+    e.stopPropagation();
+    openInvite();
+  });
+  document.getElementById('splash').addEventListener('click', openInvite);
+  document.getElementById('musicBtn').addEventListener('click', toggleMusic);
+  document.getElementById('btnGifts').addEventListener('click', function() { showModal('giftsModal'); });
+  document.getElementById('btnConfirm').addEventListener('click', function() { showModal('confirmModal'); });
+  document.getElementById('closeGifts').addEventListener('click', function() { closeModal('giftsModal'); });
+  document.getElementById('closeConfirm').addEventListener('click', function() { closeModal('confirmModal'); });
+  document.getElementById('giftsModal').addEventListener('click', function(e) { if(e.target===this) closeModal('giftsModal'); });
+  document.getElementById('confirmModal').addEventListener('click', function(e) { if(e.target===this) closeModal('confirmModal'); });
+})();
 </script>
 </body>
 </html>
